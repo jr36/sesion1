@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,8 +32,10 @@ html.print("Este es el primer acceso de la sesión <br>");
 }
 date = new Date();
 sesion.setAttribute("date", date);
-sesion.setMaxInactiveInterval(5);
+
 html.print("Fecha actual: " + date);
 html.print("</strong>");
+Cookie c = new Cookie("nombre", "san");
+response.addCookie(c);
 }
 }
